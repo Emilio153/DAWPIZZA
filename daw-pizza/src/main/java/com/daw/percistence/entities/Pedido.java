@@ -1,0 +1,51 @@
+package com.daw.percistence.entities;
+
+import java.time.LocalDate;
+import java.util.List;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Entity
+@Table(name="pedido")
+@Getter
+@Setter
+@NoArgsConstructor
+
+public class Pedido {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id;
+	@Column(name= "id_cliente")
+	private int idCliente;
+	private LocalDate fecha;
+	
+	@Column(columnDefinition = "DECIMAL(6, 2)")
+	private double total;
+	
+	@Enumerated(EnumType.STRING)
+	private  Metodo metodo;
+	
+	@Column(length = 200)
+	private  String nota;
+	
+	@ManyToOne
+	@JoinColumn(name="id_cliente",referencedColumnName = "id", insertable = false, updatable = false)
+	private Cliente cliente;
+	
+	@OneToMany(mappedBy = "pedido")
+	private List<PizzaPedido> pizzapedidos;
+}
