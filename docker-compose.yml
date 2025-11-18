@@ -4,7 +4,7 @@ services:
     image: mariadb:10.3
     environment:
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: daw-pizza
+      MYSQL_DATABASE: dawpizza
       MYSQL_USER: root
       MYSQL_PASSWORD: root
     ports:

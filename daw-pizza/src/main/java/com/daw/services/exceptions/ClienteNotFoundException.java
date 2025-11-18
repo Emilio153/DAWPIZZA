@@ -1,6 +1,6 @@
 package com.daw.services.exceptions;
 
-public class ClienteNotFoundExceptions2 extends RuntimeException{
+public class ClienteNotFoundException extends RuntimeException{
 
 	/**
 	 * 
@@ -12,7 +12,7 @@ public class ClienteNotFoundExceptions2 extends RuntimeException{
 	 */
 	
 
-	public ClienteNotFoundExceptions2(String message) {
+	public ClienteNotFoundException(String message) {
 		super(message);
 	}
 	

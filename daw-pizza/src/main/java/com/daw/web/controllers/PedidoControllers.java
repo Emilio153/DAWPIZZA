@@ -19,15 +19,9 @@ import com.daw.services.exceptions.PedidoNotFoundExceptions;
 @RequestMapping("/pedidos")
 public class PedidoControllers {
 
-    private final PizzaService pizzaService;
-
 	@Autowired
 	private PedidoService pedidoService;
 
-    PedidoControllers(PizzaService pizzaService) {
-        this.pizzaService = pizzaService;
-    }
-	
 	@GetMapping
 	public ResponseEntity<List<Pedido>> list(){
 		return ResponseEntity.ok(this.pedidoService.findAll());

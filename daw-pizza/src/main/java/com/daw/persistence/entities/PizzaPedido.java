@@ -47,6 +47,8 @@ public class PizzaPedido {
 	private Pedido pedido;
 	
 	
-	private Pizza pizza;
+	@ManyToOne
+    @JoinColumn(name = "id_pizza", referencedColumnName = "id", insertable = false, updatable = false)
+    private Pizza pizza;
 
 }
