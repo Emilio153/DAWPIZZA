@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.daw.percistence.entities.Cliente;
+import com.daw.persistence.entities.Cliente;
 import com.daw.services.ClienteService;
 
 @RestController

@@ -1,8 +1,8 @@
-package com.daw.percistence.repositories;
+package com.daw.persistence.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.daw.percistence.entities.PizzaPedido;
+import com.daw.persistence.entities.PizzaPedido;
 
 public interface PedidoPizzaRepository extends JpaRepository<PizzaPedido, Integer>{
 

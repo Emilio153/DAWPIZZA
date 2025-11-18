@@ -1,4 +1,4 @@
-package com.daw.percistence.entities;
+package com.daw.persistence.entities;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

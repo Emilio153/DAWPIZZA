@@ -9,6 +9,7 @@ import com.daw.persistence.entities.Pizza;
 import com.daw.persistence.repositories.PizzaRepository;
 import com.daw.services.exceptions.PizzaNotFoundException;
 
+
 @Service
 public class PizzaService {
 	
@@ -44,7 +45,7 @@ public class PizzaService {
 		pizzaBD.setNombre(pizza.getNombre());
 		pizzaBD.setPrecio(pizza.getPrecio());
 		pizzaBD.setVegana(pizza.isVegana());
-		pizzaBD.setVegetatiana(pizza.isVegetatiana());
+		pizzaBD.setVegetariana(pizza.isVegetariana());
 		
 		return this.pizzaRepository.save(pizza);
 	}

@@ -4,8 +4,8 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.daw.percistence.entities.Cliente;
-import com.daw.percistence.repositories.ClienteRepository;
+import com.daw.persistence.entities.Cliente;
+import com.daw.persistence.repositories.ClienteRepository;
 
 public class ClienteService {
 	@Autowired

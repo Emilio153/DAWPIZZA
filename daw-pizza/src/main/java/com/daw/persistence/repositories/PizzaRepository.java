@@ -1,8 +1,8 @@
-package com.daw.percistence.repositories;
+package com.daw.persistence.repositories;
 
 import org.springframework.data.repository.ListCrudRepository;
 
-import com.daw.percistence.entities.Pizza;
+import com.daw.persistence.entities.Pizza;
 
 public interface PizzaRepository extends ListCrudRepository<Pizza, Integer> {
    

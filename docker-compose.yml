@@ -3,10 +3,10 @@ services:
   db:
     image: mariadb:10.3
     environment:
-      MYSQL_ROOT_PASSWORD: secreta
-      MYSQL_DATABASE: daw-pool
-      MYSQL_USER: admin
-      MYSQL_PASSWORD: secreta
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: daw-pizza
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
     ports:
       - "3311:3306"
     volumes:
@@ -20,7 +20,7 @@ services:
       PMA_HOST: db
       PMA_PORT: 3306
       PMA_ARBITRARY: 1
-      MYSQL_ROOT_PASSWORD: secreta
+      MYSQL_ROOT_PASSWORD: root
     restart: always
     ports:
       - 8093:80

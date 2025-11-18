@@ -1,4 +1,4 @@
-package com.daw.services.Exceptions;
+package com.daw.services.exceptions;
 
 public class PizzaNotFoundException extends RuntimeException{
 

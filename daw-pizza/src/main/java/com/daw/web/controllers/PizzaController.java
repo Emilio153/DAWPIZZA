@@ -14,11 +14,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.daw.percistence.entities.Pizza;
+import com.daw.persistence.entities.Pizza;
 import com.daw.services.PizzaService;
-import com.daw.services.Exceptions.PizzaNotFoundException;
 import com.daw.services.exceptions.PizzaException;
 import com.daw.services.exceptions.PizzaNotFoundException;
+
 
 @RestController
 @RequestMapping("/pizzas")
@@ -44,12 +44,12 @@ public class PizzaController {
 	
 	@PostMapping
 	public ResponseEntity<?> create(@RequestBody Pizza pizza){
-//		try {
+	try {
 			return ResponseEntity.status(HttpStatus.CREATED).body(this.pizzaService.create(pizza));
-//		}
-//		catch(PizzaException ex) {
-//			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(ex.getMessage());
-//		}
+		}
+		catch(PizzaException ex) {
+			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(ex.getMessage());
+		}
 	}
 	
 	@PutMapping("/{idPizza}")
@@ -60,7 +60,7 @@ public class PizzaController {
 		catch(PizzaNotFoundException ex) {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ex.getMessage());
 		}
-		catch(PizzaExceptions ex) {
+		catch(PizzaException ex) {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(ex.getMessage());
 		}
 	}

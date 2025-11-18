@@ -1,4 +1,4 @@
-package com.daw.percistence.entities;
+package com.daw.persistence.entities;
 
 public enum Metodo {
 	
