@@ -29,6 +29,30 @@ public class PedidoService {
 			
 			return this.pedidoRepository.findById(idPedido).get();
 		}
+	  
+	  public Pedido create (Pedido pedido) {
+		  pedido.setId(0);
+	 
+	  return this.pedidoRepository.save(pedido);
+	  }
+	  
+	  public Pedido update(int idPedido, Pedido pedido) {
+		  Pedido pedidoBD = this.findById(idPedido);
+		  pedidoBD.setIdCliente(pedido.getIdCliente());
+		  pedidoBD.setFecha(pedido.getFecha());
+		  pedidoBD.setTotal(pedido.getTotal());
+		  pedidoBD.setMetodo(pedido.getMetodo());
+		  pedidoBD.setNota(pedido.getNota());
+		  
+		  return this.pedidoRepository.save(pedido);
+	  }
+	  
+	  public void deleteById(int idPedido) {
+		  if(!this.pedidoRepository.existsById(idPedido)) {
+			  throw new ClienteNotFoundException("El ID indicado no existe");
+		  }
+		  this.pedidoRepository.deleteById(idPedido);
+	  }
 	 
 }
 	
