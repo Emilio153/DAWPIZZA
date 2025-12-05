@@ -77,5 +77,16 @@ public class PedidoControllers {
 		}
 	}
 	
+	// CRUDs de PizzaPedido
+	// findAll
+	
+	@GetMapping("/{idPedido}/pizzas")
+	public ResponseEntity<?> listPizzaPedido(@PathVariable int idPedido){
+		try {
+			return ResponseEntity.ok(this.pedidoService.findPizzaByIdPedido(idPedido);
+		}catch(PedidoNotFoundExceptions ex) {
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ex.getMessage());
+		}
+	}
 	
 }
