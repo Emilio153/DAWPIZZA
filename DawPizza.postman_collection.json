@@ -1,0 +1,190 @@
+
+{
+  "info": {
+    "name": "DawPizza API",
+    "_postman_id": "dawpizza-collection",
+    "description": "Colección generada automáticamente con todos los CRUDs: Clientes, Pizzas, Pedidos y PizzaPedido",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Clientes",
+      "item": [
+        {
+          "name": "GET - Listar Clientes",
+          "request": {
+            "method": "GET",
+            "url": "http://localhost:8080/clientes"
+          }
+        },
+        {
+          "name": "GET - Buscar Cliente por ID",
+          "request": {
+            "method": "GET",
+            "url": "http://localhost:8080/clientes/{{idCliente}}"
+          }
+        },
+        {
+          "name": "POST - Crear Cliente",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Juan Pérez\",\n  \"direccion\": \"Calle Falsa 123\",\n  \"email\": \"juan@example.com\",\n  \"telefono\": \"612345678\"\n}"
+            },
+            "url": "http://localhost:8080/clientes"
+          }
+        },
+        {
+          "name": "PUT - Actualizar Cliente",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": {{idCliente}},\n  \"nombre\": \"Juan Modificado\",\n  \"direccion\": \"Nueva dirección 456\",\n  \"email\": \"juan_mod@example.com\",\n  \"telefono\": \"600000000\"\n}"
+            },
+            "url": "http://localhost:8080/clientes/{{idCliente}}"
+          }
+        },
+        {
+          "name": "DELETE - Eliminar Cliente",
+          "request": {
+            "method": "DELETE",
+            "url": "http://localhost:8080/clientes/{{idCliente}}"
+          }
+        }
+      ]
+    },
+
+    {
+      "name": "Pizzas",
+      "item": [
+        {
+          "name": "GET - Listar Pizzas",
+          "request": { "method": "GET", "url": "http://localhost:8080/pizzas" }
+        },
+        {
+          "name": "GET - Buscar Pizza por ID",
+          "request": { "method": "GET", "url": "http://localhost:8080/pizzas/{{idPizza}}" }
+        },
+        {
+          "name": "POST - Crear Pizza",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Margarita\",\n  \"descripcion\": \"Clásica con tomate y queso\",\n  \"precio\": 8.50,\n  \"disponible\": true,\n  \"vegana\": false,\n  \"vegetariana\": true\n}"
+            },
+            "url": "http://localhost:8080/pizzas"
+          }
+        },
+        {
+          "name": "PUT - Actualizar Pizza",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": {{idPizza}},\n  \"nombre\": \"Margarita Especial\",\n  \"descripcion\": \"Versión mejorada\",\n  \"precio\": 9.00,\n  \"disponible\": true,\n  \"vegana\": false,\n  \"vegetariana\": true\n}"
+            },
+            "url": "http://localhost:8080/pizzas/{{idPizza}}"
+          }
+        },
+        {
+          "name": "DELETE - Eliminar Pizza",
+          "request": { "method": "DELETE", "url": "http://localhost:8080/pizzas/{{idPizza}}" }
+        }
+      ]
+    },
+
+    {
+      "name": "Pedidos",
+      "item": [
+        {
+          "name": "GET - Listar Pedidos",
+          "request": { "method": "GET", "url": "http://localhost:8080/pedidos" }
+        },
+        {
+          "name": "GET - Buscar Pedido por ID",
+          "request": { "method": "GET", "url": "http://localhost:8080/pedidos/{{idPedido}}" }
+        },
+        {
+          "name": "POST - Crear Pedido",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"idCliente\": 1,\n  \"fecha\": \"2025-01-01\",\n  \"total\": 15.50,\n  \"metodo\": \"TARJETA\",\n  \"nota\": \"Sin cebolla\"\n}"
+            },
+            "url": "http://localhost:8080/pedidos"
+          }
+        },
+        {
+          "name": "PUT - Actualizar Pedido",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"idCliente\": 1,\n  \"fecha\": \"2025-02-01\",\n  \"total\": 20.00,\n  \"metodo\": \"EFECTIVO\",\n  \"nota\": \"Urgente\"\n}"
+            },
+            "url": "http://localhost:8080/pedidos/{{idPedido}}"
+          }
+        },
+        {
+          "name": "DELETE - Eliminar Pedido",
+          "request": { "method": "DELETE", "url": "http://localhost:8080/pedidos/{{idPedido}}" }
+        }
+      ]
+    },
+
+    {
+      "name": "PizzaPedido",
+      "item": [
+        {
+          "name": "GET - Listar Pizzas del Pedido",
+          "request": { "method": "GET", "url": "http://localhost:8080/pedidos/{{idPedido}}/pizzas" }
+        },
+        {
+          "name": "GET - Buscar PizzaPedido por ID",
+          "request": { "method": "GET", "url": "http://localhost:8080/pedidos/{{idPedido}}/pizzas/{{idPizzaPedido}}" }
+        },
+        {
+          "name": "POST - Añadir Pizza a Pedido",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"idPizza\": 1,\n  \"cantidad\": 2\n}"
+            },
+            "url": "http://localhost:8080/pedidos/{{idPedido}}/pizzas"
+          }
+        },
+        {
+          "name": "PUT - Actualizar PizzaPedido",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"idPizza\": 1,\n  \"cantidad\": 3\n}"
+            },
+            "url": "http://localhost:8080/pedidos/{{idPedido}}/pizzas/{{idPizzaPedido}}"
+          }
+        },
+        {
+          "name": "DELETE - Eliminar PizzaPedido",
+          "request": {
+            "method": "DELETE",
+            "url": "http://localhost:8080/pedidos/{{idPedido}}/pizzas/{{idPizzaPedido}}"
+          }
+        }
+      ]
+    }
+  ]
+}
